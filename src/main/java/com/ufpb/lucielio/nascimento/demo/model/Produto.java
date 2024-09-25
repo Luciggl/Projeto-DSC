@@ -1,5 +1,6 @@
 package com.ufpb.lucielio.nascimento.demo.model;
 
+import com.ufpb.lucielio.nascimento.demo.enums.CategoriaProduto;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,12 +13,14 @@ public class Produto {
     private Long id;
     private String nome;
     private String fabricante;
+    private CategoriaProduto categoriaProduto;
     private BigDecimal valor;
     private int quantidade;
 
-    public Produto( String nome, String fabricante, BigDecimal valor, int quantidade) {
+    public Produto( String nome, String fabricante, CategoriaProduto categoriaProduto,BigDecimal valor, int quantidade) {
         this.nome = nome;
         this.fabricante = fabricante;
+        this.categoriaProduto = categoriaProduto;
         this.valor = valor;
         this.quantidade = quantidade;
     }
@@ -43,6 +46,14 @@ public class Produto {
 
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
+    }
+
+    public CategoriaProduto getCategoriaProduto() {
+        return categoriaProduto;
+    }
+
+    public void setCategoriaProduto(CategoriaProduto categoriaProduto) {
+        this.categoriaProduto = categoriaProduto;
     }
 
     public BigDecimal getValor() {
