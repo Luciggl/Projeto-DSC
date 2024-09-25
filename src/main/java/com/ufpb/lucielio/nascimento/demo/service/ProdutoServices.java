@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class ProdutoServices {
@@ -28,4 +29,26 @@ public class ProdutoServices {
     public List<Produto> buscarProdutos(){
         return produtoRepository.findAll();
     }
+
+    public Produto atualizarProduto(Long idProduto, Produto produto){
+        Optional<Produto> produtoData = produtoRepository.findById(idProduto);
+        Produto toUpdate = produtoData.orElseThrow(NoSuchElementException::new);
+        toUpdate.setCategoriaProduto(produto.getCategoriaProduto());
+        toUpdate.setNome(produto.getNome());
+        toUpdate.setFabricante(produto.getFabricante());
+        toUpdate.setQuantidade(produto.getQuantidade());
+        toUpdate.setValor(produto.getValor());
+        return toUpdate;
+    }
+
+    public Produto criarProduto(Produto produto){
+        Produto p = produto;
+        return produtoRepository.save(p);
+    }
+
+    public void apagarProduto(Long idFigurinha){
+        Produto p = produtoRepository.findById(idFigurinha).orElseThrow(NoSuchElementException::new);
+        produtoRepository.delete(p);
+    }
+
 }
