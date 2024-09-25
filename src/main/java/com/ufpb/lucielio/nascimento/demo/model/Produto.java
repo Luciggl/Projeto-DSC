@@ -1,13 +1,11 @@
 package com.ufpb.lucielio.nascimento.demo.model;
 
 import com.ufpb.lucielio.nascimento.demo.enums.CategoriaProduto;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+@Entity
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
