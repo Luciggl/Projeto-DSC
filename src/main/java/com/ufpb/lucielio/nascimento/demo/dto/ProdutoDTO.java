@@ -1,24 +1,17 @@
-package com.ufpb.lucielio.nascimento.demo.model;
+package com.ufpb.lucielio.nascimento.demo.dto;
 
 import com.ufpb.lucielio.nascimento.demo.enums.CategoriaProduto;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.UniqueConstraint;
 
 import java.math.BigDecimal;
 
-public class Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProdutoDTO {
     private String nome;
     private String fabricante;
     private CategoriaProduto categoriaProduto;
     private BigDecimal valor;
     private int quantidade;
 
-    public Produto( String nome, String fabricante, CategoriaProduto categoriaProduto,BigDecimal valor, int quantidade) {
+    public ProdutoDTO( String nome, String fabricante, CategoriaProduto categoriaProduto,BigDecimal valor, int quantidade) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.categoriaProduto = categoriaProduto;
@@ -26,12 +19,9 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public Produto() {
+    public ProdutoDTO() {
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getNome() {
         return nome;
@@ -71,16 +61,5 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", valor=" + valor +
-                ", quantidade=" + quantidade +
-                '}';
     }
 }
