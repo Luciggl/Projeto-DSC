@@ -1,17 +1,17 @@
 package com.ufpb.lucielio.nascimento.demo.dto;
 
-import com.ufpb.lucielio.nascimento.demo.enums.CategoriaProduto;
+import com.ufpb.lucielio.nascimento.demo.model.Categoria;
 
 import java.math.BigDecimal;
 
 public class ProdutoDTO {
     private String nome;
     private String fabricante;
-    private CategoriaProduto categoriaProduto;
+    private Categoria categoriaProduto;
     private BigDecimal valor;
     private int quantidade;
 
-    public ProdutoDTO( String nome, String fabricante, CategoriaProduto categoriaProduto,BigDecimal valor, int quantidade) {
+    public ProdutoDTO( String nome, String fabricante, Categoria categoriaProduto,BigDecimal valor, int quantidade) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.categoriaProduto = categoriaProduto;
@@ -39,11 +39,11 @@ public class ProdutoDTO {
         this.fabricante = fabricante;
     }
 
-    public CategoriaProduto getCategoriaProduto() {
+    public Categoria getCategoriaProduto() {
         return categoriaProduto;
     }
 
-    public void setCategoriaProduto(CategoriaProduto categoriaProduto) {
+    public void setCategoriaProduto(Categoria categoriaProduto) {
         this.categoriaProduto = categoriaProduto;
     }
 

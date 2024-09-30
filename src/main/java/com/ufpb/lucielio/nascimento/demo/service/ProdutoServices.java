@@ -1,5 +1,6 @@
 package com.ufpb.lucielio.nascimento.demo.service;
 
+import com.ufpb.lucielio.nascimento.demo.model.Categoria;
 import com.ufpb.lucielio.nascimento.demo.model.Produto;
 import com.ufpb.lucielio.nascimento.demo.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,20 @@ public class ProdutoServices {
         List<Produto> produtos = new ArrayList<>();
         produtoRepository.findAll().forEach(produtos::add);
         return produtos;
+
+}
+    public List<Produto> buscarPorCategoria(Categoria categoria){
+        if (categoria != null){
+            List<Produto> produtosCategoria = new ArrayList<>();
+            List<Produto> todosProdutos = produtoRepository.findAll();
+            for (Produto produto : todosProdutos) {
+                if (produto.getCategoriaProduto().equals(categoria)){
+                    produtosCategoria.add(produto);
+                }
+            }
+            return produtosCategoria;
+        }
+        return produtoRepository.findAll();
     }
 
     public List<Produto> buscarProdutos(){
