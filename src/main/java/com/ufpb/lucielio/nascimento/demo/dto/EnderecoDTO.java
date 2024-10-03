@@ -1,29 +1,18 @@
-package com.ufpb.lucielio.nascimento.demo.model;
+package com.ufpb.lucielio.nascimento.demo.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
-public class Endereco {
-    @NotBlank
+public class EnderecoDTO {
     private String cep;
-    @NotBlank
     private String rua;
-    @NotBlank
     private String cidade;
-    @NotBlank
     private String estado;
-    @NotBlank
     private int numeroCasa;
 
-    public Endereco(String cep, String rua, String cidade, String estado, int numeroCasa) {
+    public EnderecoDTO(String cep, String rua, String cidade, String estado, int numeroCasa) {
         this.cep = cep;
         this.rua = rua;
         this.cidade = cidade;
         this.estado = estado;
         this.numeroCasa = numeroCasa;
-    }
-
-    public Endereco(){
-
     }
 
     public String getCep() {
