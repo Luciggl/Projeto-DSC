@@ -1,13 +1,22 @@
 package com.ufpb.lucielio.nascimento.demo.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import java.util.List;
 import java.util.Objects;
 
 public class User {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long Id;
     private String nome;
     private String email;
     private String senha;
     private Endereco endereco;
+    private List<Produto> carrinhoDeCompras;
+    private List<Pedidos> pedidosList;
 
     public User( String nome, String email, String senha, Endereco endereco) {
         this.nome = nome;
@@ -53,6 +62,14 @@ public class User {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public List<Produto> getCarrinhoDeCompras() {
+        return carrinhoDeCompras;
+    }
+
+    public void setCarrinhoDeCompras(List<Produto> carrinhoDeCompras) {
+        this.carrinhoDeCompras = carrinhoDeCompras;
     }
 
     @Override
