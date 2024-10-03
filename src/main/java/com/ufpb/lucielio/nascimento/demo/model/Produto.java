@@ -1,6 +1,8 @@
 package com.ufpb.lucielio.nascimento.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.math.BigDecimal;
 
@@ -9,10 +11,15 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String fabricante;
+    @NotNull
     private Categoria categoriaProduto;
+    @NotBlank
     private BigDecimal valor;
+    @NotBlank
     private int quantidade;
 
     public Produto( String nome, String fabricante, Categoria categoriaProduto,BigDecimal valor, int quantidade) {
