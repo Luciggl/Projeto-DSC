@@ -7,14 +7,16 @@ import java.util.Objects;
 
 public class UserDTO {
     private String nome;
-    private String login;
-    private String senha;
+    private String username;
+    private String email;
+    private String password;
     private FunctionUser function;
 
-    public UserDTO(String nome, String login, String senha, FunctionUser function) {
+    public UserDTO(String nome, String login, String email,String password, FunctionUser function) {
         this.nome = nome;
-        this.login = login;
-        this.senha = senha;
+        this.username = login;
+        this.email = email;
+        this.password = password;
         this.function = function;
     }
 
@@ -27,16 +29,28 @@ public class UserDTO {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public FunctionUser getFunction() {
@@ -51,11 +65,11 @@ public class UserDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Usuarios user)) return false;
-        return Objects.equals(getLogin(), user.getLogin());
+        return Objects.equals(getUsername(), user.getUsername());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getLogin());
+        return Objects.hash(getUsername());
     }
 }

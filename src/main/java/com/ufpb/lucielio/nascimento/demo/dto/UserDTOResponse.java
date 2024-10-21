@@ -7,7 +7,8 @@ import java.util.Objects;
 public class UserDTOResponse {
     private Long id;
     private String nome;
-    private String login;
+    private String username;
+    private String email;
     private FunctionUser functionUser;
 
     public Long getId() {
@@ -26,12 +27,20 @@ public class UserDTOResponse {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public FunctionUser getFunctionUser() {
@@ -47,11 +56,11 @@ public class UserDTOResponse {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserDTOResponse that = (UserDTOResponse) o;
-        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(login, that.login) && functionUser == that.functionUser;
+        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(username, that.username) && functionUser == that.functionUser;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, login, functionUser);
+        return Objects.hash(id, nome, username, functionUser);
     }
 }
